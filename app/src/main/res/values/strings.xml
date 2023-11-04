@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Enlight21</string>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+
+    </style>
+</resources>
