@@ -4,6 +4,6 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimaryVariant" >@color/baseBgcolor</item>
-        <item name="android:statusBarColor">@color/baseBgcolor</item>
+        <item name="android:statusBarColor">#212126</item>
     </style>
 </resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "70044094698",
+    "project_id": "enlight21-52942",
+    "storage_bucket": "enlight21-52942.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70044094698:android:4bde4f5a04e3ccfd01c793",
+        "android_client_info": {
+          "package_name": "com.example.enlight21"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfJflNxnlhqDNhChzamP1fVxRw603fzqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

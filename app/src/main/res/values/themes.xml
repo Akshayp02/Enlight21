@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimaryVariant" >@color/baseBgcolor</item>
-        <item name="android:statusBarColor">@color/baseBgcolor</item>
+        <item name="android:statusBarColor">#212126</item>
     </style>
     <style name="Theme.Enlight21" parent="Base.Theme.Enlight21" />
 

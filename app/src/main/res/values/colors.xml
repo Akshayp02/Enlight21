@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="baseBgcolor">#16161a</color>
     <color name="BTNcolor">#7f5af0</color>
+    <color name="TextfieldColor">#212126</color>
 
 
 </resources>
