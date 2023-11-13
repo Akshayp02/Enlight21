@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/baseBgcolor"
+    android:orientation="vertical"
+    tools:context=".editProfileActivity">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/profilepicicon" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/TextfieldColor"
+        android:hint="Edit Your name"
+        android:textColorHint="@color/headline_color"
+        android:textColor="@color/headline_color"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/discription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/TextfieldColor"
+        android:hint="edit your Disciption "
+        android:textColorHint="@color/headline_color"
+        android:textColor="@color/headline_color"/>
+
+    <Button
+        android:id="@+id/btn_update"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="351dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/BTNcolor"
+        android:text="update"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

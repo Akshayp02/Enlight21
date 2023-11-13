@@ -12,12 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.enlight21.Models.User;
 import com.example.enlight21.databinding.ActivitySignupBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 // ... (other import statements)
 
@@ -25,6 +27,7 @@ public class signupActivity extends AppCompatActivity {
 
     private ActivitySignupBinding binding;
     private FirebaseAuth mAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onStart() {
@@ -49,6 +52,8 @@ public class signupActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
+
+
         binding.signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,12 +69,24 @@ public class signupActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-                                            Log.d(TAG, "Create User with email: Success");
-                                            FirebaseUser user = mAuth.getCurrentUser();
-                                            Toast.makeText(signupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(signupActivity.this, signinActivity.class);
-                                            startActivity(intent);
-                                            // Registration is successful, you can perform any further actions here
+
+                                            User user = new User( binding.Username.getText().toString(), password,email,null,null);
+                                            // to strore data in firebase
+                                            db.collection("users").document(mAuth.getCurrentUser().getUid()).set(user)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            Log.d(TAG, "DocumentSnapshot added with ID: " + mAuth.getCurrentUser().getUid());
+                                                            Log.d(TAG, "Create User with email: Success");
+                                                            FirebaseUser user = mAuth.getCurrentUser();
+                                                            Toast.makeText(signupActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                                            Intent intent = new Intent(signupActivity.this, signinActivity.class);
+                                                            startActivity(intent);
+                                                            // Registration is successful, you can perform any further actions here
+                                                        }
+                                                    });
+
+
                                         } else {
                                             Log.w(TAG, "Create user failed", task.getException());
                                             Toast.makeText(signupActivity.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

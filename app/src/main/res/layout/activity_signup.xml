@@ -9,6 +9,7 @@
     tools:context=".signupActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/userprofile"
@@ -87,7 +88,7 @@
 
 
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/signupBtn"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="351dp"
         android:layout_height="50dp"
