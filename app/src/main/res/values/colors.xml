@@ -5,6 +5,14 @@
     <color name="baseBgcolor">#16161a</color>
     <color name="BTNcolor">#7f5af0</color>
     <color name="TextfieldColor">#212126</color>
+    <color name="paragraph_color">#94a1b2</color>
+    <color name="headline_color">#fffffe</color>
+    <color name="button_text_color">#fffffe</color>
+    <color name="Hint_color">#7f5af0</color>
+    <color name="Stock_color">#010101</color>
+    <color name="Paragraff_color">#94a1b2</color>
+    <color name="tertiry_color">#2cb67d</color>
+
 
 
 </resources>
