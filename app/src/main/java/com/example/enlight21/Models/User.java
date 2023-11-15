@@ -6,6 +6,7 @@ public class User {
     public String email;
     public String image;
     public String description;
+    private boolean following = true;
 
     public User() {
         // Default constructor required for Firebase
@@ -63,5 +64,20 @@ public class User {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+
+
+    // Getter and setter for following
+    public boolean isFollowing() {
+        return following;
+    }
+
+    public void setFollowing(boolean following) {
+        this.following = following;
+    }
+
+    public void setEmail(String email) {
+        this.email =email;
     }
 }

@@ -7,4 +7,5 @@ public class Constant {
     public static final String USER_POFILE_FOLDER = "Profile";
     public static final String POST_FOLDER = "PostsImages";
     public static final String POST = "Post";
+    public static final String FOLLOW = "Follow";
 }

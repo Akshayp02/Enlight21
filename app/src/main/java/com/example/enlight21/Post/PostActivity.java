@@ -1,24 +1,29 @@
 package com.example.enlight21.Post;
 
+
 import static com.example.enlight21.Utils.Constant.POST;
+import static com.example.enlight21.Utils.Constant.USER_NODE;
 
-
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.enlight21.Models.Post;
+import com.example.enlight21.R;
 import com.example.enlight21.Utils.Utils;
 import com.example.enlight21.databinding.ActivityPostBinding;
 import com.example.enlight21.fragments.HomeFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -29,10 +34,11 @@ import java.util.UUID;
 public class PostActivity extends AppCompatActivity {
     private ActivityPostBinding binding;
     private String IMAGEURL;
-
+    private String Username;
+    private String technology;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +58,9 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-         final ActivityResultLauncher<String> launcher = registerForActivityResult(
+        Username = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+
+        final ActivityResultLauncher<String> launcher = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
                     @Override
@@ -81,35 +89,62 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-    binding.shearePost.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+
+        binding.shearePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
-                
-                Post post = new Post(IMAGEURL,binding.inputCaption.getText().toString());
+                if (binding.TECNOLOGYip.getText().toString().isEmpty()) {
+                    binding.TECNOLOGYip.setError("Please select  technology");
+                } else {
+                    technology = binding.TECNOLOGYip.getText().toString();
+                }
 
-                db.collection(POST).document().set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        db.collection(FirebaseAuth.getInstance().getCurrentUser().getUid()).document().set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
+                db.collection(USER_NODE).document(FirebaseAuth.getInstance().getCurrentUser().getUid()).get()
+                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
-                            public void onSuccess(Void unused) {
-                                Intent intent = new Intent(PostActivity.this, HomeFragment.class);
-                                startActivity(intent);
-                                finish();
-
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                Username = documentSnapshot.getString("username");
                             }
                         });
 
-                    }
-                });
-                
+                Post post = new Post(IMAGEURL, binding.inputCaption.getText().toString(), Username, technology);
 
-            
-                   
-        }
-    });
+                // check whether given any field is empty or not it it is empty then show error message
+                if (post.getCaption().isEmpty()) {
+                    binding.inputCaption.setError("Caption is required");
+                    return;
+                } else {
+
+                    db.collection(POST).document().set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            db.collection(FirebaseAuth.getInstance().getCurrentUser().getUid()).document().set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+//                                Intent intent = new Intent(getActivity(), HomeFragment.class);
+//                                startActivity(intent);
+//                                finish();
+
+
+                                    FragmentManager fragmentManager = getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.container, new HomeFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+
+
+                                }
+                            });
+
+                        }
+                    });
+                }
+
+
+            }
+        });
 
     }
 
@@ -130,6 +165,7 @@ public class PostActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri downloadUri) {
                         String imageUrl = downloadUri.toString();
+                        Toast.makeText(PostActivity.this, "Post Uploded", Toast.LENGTH_SHORT).show();
 
                         if (callback != null) {
                             callback.onImageUploaded(imageUrl);
@@ -138,6 +174,8 @@ public class PostActivity extends AppCompatActivity {
                 });
             }
         });
+
+
     }
 
 }

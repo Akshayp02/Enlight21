@@ -1,5 +1,7 @@
 package com.example.enlight21.fragments;
 
+import static com.example.enlight21.Utils.Constant.USER_NODE;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -83,7 +85,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         // code here
-        db.collection("users").document(user.getUid()).get().addOnSuccessListener(documentSnapshot -> {
+        db.collection(USER_NODE).document(user.getUid()).get().addOnSuccessListener(documentSnapshot -> {
 
             User user = documentSnapshot.toObject(User.class);
             assert user != null;

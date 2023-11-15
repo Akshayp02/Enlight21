@@ -2,6 +2,8 @@ package com.example.enlight21;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.enlight21.Utils.Constant.USER_NODE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -72,7 +74,7 @@ public class signupActivity extends AppCompatActivity {
 
                                             User user = new User( binding.Username.getText().toString(), password,email,null,null);
                                             // to strore data in firebase
-                                            db.collection("users").document(mAuth.getCurrentUser().getUid()).set(user)
+                                            db.collection(USER_NODE).document(mAuth.getCurrentUser().getUid()).set(user)
                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
