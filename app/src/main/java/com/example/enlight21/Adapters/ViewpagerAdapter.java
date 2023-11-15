@@ -16,15 +16,6 @@ public class ViewpagerAdapter extends FragmentStateAdapter {
     public ViewpagerAdapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
 
-//        // Add your fragments and titles to the lists
-//        fragmentList.add(YourFragment.newInstance(0));
-//        titleList.add("Title 1");
-//
-//        fragmentList.add(YourFragment.newInstance(1));
-//        titleList.add("Title 2");
-//
-//        fragmentList.add(YourFragment.newInstance(2));
-//        titleList.add("Title 3");
 
     }
 
