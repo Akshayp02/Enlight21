@@ -36,15 +36,7 @@ public class chat_Fragment extends Fragment {
                              Bundle savedInstanceState) {
        binding =inflate(inflater, container, false);
 
-       binding.Search.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-
-               Intent intent = new Intent(getActivity(), SearchActivity.class);
-               startActivity(intent);
-
-           }
-       });
+       // code here
 
 
 
