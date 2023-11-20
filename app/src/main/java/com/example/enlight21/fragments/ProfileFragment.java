@@ -1,5 +1,6 @@
 package com.example.enlight21.fragments;
 
+import static androidx.fragment.app.FragmentManagerKt.commit;
 import static com.example.enlight21.Utils.Constant.USER_NODE;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.example.enlight21.databinding.FragmentProfileBinding;
 
 import com.example.enlight21.editProfileActivity;
 
+import com.example.enlight21.signinActivity;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,7 +63,7 @@ public class ProfileFragment extends Fragment {
 
         // Add fragments to the adapter
         viewpagerAdapter.addFragment(new MyPostFragment(), "My Post");
-        viewpagerAdapter.addFragment(new MySrtaredFragment(), "My Stared");
+       // viewpagerAdapter.addFragment(new MySrtaredFragment(), "My Stared");
 
         // Set the adapter to the ViewPager2
         binding.Viewpager.setAdapter(viewpagerAdapter);
@@ -70,6 +72,18 @@ public class ProfileFragment extends Fragment {
         new TabLayoutMediator(binding.tabLayout, binding.Viewpager,
                 (tab, position) -> tab.setText(viewpagerAdapter.getTitle(position))
         ).attach();
+
+
+        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), signinActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+
+            }
+        });
 
         return binding.getRoot();
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
@@ -14,8 +14,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/baseBgcolor"
-            app:cardCornerRadius="10dp"
+            android:backgroundTint="@color/TextfieldColor"
+            app:cardCornerRadius="5dp"
             app:cardElevation="5dp"
             android:padding="2dp"
             >
@@ -57,7 +57,7 @@
                             android:fontFamily="@font/inter_medium"
                             android:text="User Name"
                             android:textColor="@color/headline_color"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
@@ -69,7 +69,7 @@
                             android:fontFamily="@font/inter"
                             android:text="Technology"
                             android:textColor="@color/paragraph_color"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="normal" />
 
                     </LinearLayout>
@@ -97,6 +97,7 @@
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="5dp"
                     android:id="@+id/postimg"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
@@ -105,32 +106,32 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/postimg"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="0dp"
                     android:backgroundTint="@color/baseBgcolor">
 
                     <LinearLayout
                         android:id="@+id/s123"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="8dp">
+                        android:layout_gravity="center"
+                       >
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/like"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="30dp"
                             android:src="@drawable/heart" />
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/share"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
+                            android:layout_marginStart="15dp"
                             android:src="@drawable/send" />
 
 
@@ -142,17 +143,17 @@
                         android:layout_marginTop="55dp"
                         android:layout_marginStart="10dp"
                         >
-                        <androidx.appcompat.widget.AppCompatCheckedTextView
-                            android:id="@+id/post_like_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/inter_medium"
-                            android:text="1000k lkes"
-                            android:textColor="@color/headline_color"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+<!--                        <androidx.appcompat.widget.AppCompatCheckedTextView-->
+<!--                            android:id="@+id/post_like_count"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:layout_marginStart="8dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:fontFamily="@font/inter_medium"-->
+<!--                            android:text="1000k lkes"-->
+<!--                            android:textColor="@color/headline_color"-->
+<!--                            android:textSize="18sp"-->
+<!--                            android:textStyle="bold" />-->
 
 
                     </LinearLayout>

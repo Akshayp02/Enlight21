@@ -17,12 +17,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.enlight21.Models.Post;
+import com.example.enlight21.Models.User;
 import com.example.enlight21.R;
 import com.example.enlight21.Utils.Utils;
 import com.example.enlight21.databinding.ActivityPostBinding;
 import com.example.enlight21.fragments.HomeFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -34,10 +36,12 @@ import java.util.UUID;
 public class PostActivity extends AppCompatActivity {
     private ActivityPostBinding binding;
     private String IMAGEURL;
-    private String Username;
+
+    private String CurrentUsername;
     private String technology;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
     @Override
@@ -58,7 +62,7 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-        Username = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        CurrentUsername = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
 
         final ActivityResultLauncher<String> launcher = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
@@ -82,6 +86,14 @@ public class PostActivity extends AppCompatActivity {
                 }
         );
 
+        db.collection(USER_NODE).document(user.getUid()).get().addOnSuccessListener(documentSnapshot -> {
+
+            User user = documentSnapshot.toObject(User.class);
+            assert user != null;
+
+            CurrentUsername = user.username.toString();
+        });
+
         binding.imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,15 +113,8 @@ public class PostActivity extends AppCompatActivity {
                     technology = binding.TECNOLOGYip.getText().toString();
                 }
 
-                db.collection(USER_NODE).document(FirebaseAuth.getInstance().getCurrentUser().getUid()).get()
-                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                            @Override
-                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                Username = documentSnapshot.getString("username");
-                            }
-                        });
 
-                Post post = new Post(IMAGEURL, binding.inputCaption.getText().toString(), Username, technology);
+                Post post = new Post(IMAGEURL, binding.inputCaption.getText().toString(), CurrentUsername, technology);
 
                 // check whether given any field is empty or not it it is empty then show error message
                 if (post.getCaption().isEmpty()) {

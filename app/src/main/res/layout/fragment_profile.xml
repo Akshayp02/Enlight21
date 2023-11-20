@@ -30,11 +30,21 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/edit_btn"
             android:layout_width="60dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/BTNcolor"
-            android:text="Edit"/>
+            android:text="Edit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logout_btn"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/BTNcolor"
+            android:text="logout" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,29 +60,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="10dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp"
                 android:text="User name"
-                android:textColor="@color/headline_color"
-                />
+                android:textColor="@color/headline_color" />
 
             <androidx.appcompat.widget.AppCompatCheckedTextView
                 android:id="@+id/Disciption"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
 
                 android:text="User Disciption"
-                android:textColor="@color/headline_color"
-                />
+                android:textColor="@color/headline_color" />
 
         </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -97,12 +109,9 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/Viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/baseBgcolor"
         android:contentDescription="Description of your ViewPager" />
-
-
-
 
 
 </LinearLayout>

@@ -28,14 +28,14 @@
                 android:src="@drawable/enlight21tool"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/Search"
+                android:id="@+id/notification"
                 android:layout_width="33dp"
                 android:layout_height="33dp"
                 android:layout_gravity="center_vertical"
                 android:foregroundGravity="left|center"
                 android:layout_marginStart="200dp"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/user"/>
+                android:src="@drawable/notifications"/>
 
         </LinearLayout>
 
@@ -49,41 +49,6 @@
         app:dividerColor="#2cb67d"
 
         />
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="1dp"
-        android:contentDescription="Enter How Much Cookies You Want"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/storyicon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/profilepicicon"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                />
-
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"/>
-
 
 
 </LinearLayout>
