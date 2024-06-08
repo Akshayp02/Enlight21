@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".fragments.BookFragment">
 
+    <include layout="@layout/toolbar_file"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="90dp"

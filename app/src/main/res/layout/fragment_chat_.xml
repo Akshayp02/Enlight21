@@ -7,41 +7,8 @@
     android:orientation="vertical"
     android:background="@color/baseBgcolor"
     tools:context=".fragments.chat_Fragment">
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@color/baseBgcolor"
-        android:elevation="12dp"
 
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/enlight21tool"/>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/notification"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:layout_gravity="center_vertical"
-                android:foregroundGravity="left|center"
-                android:layout_marginStart="200dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/notifications"/>
-
-        </LinearLayout>
-
-
-
-    </com.google.android.material.appbar.MaterialToolbar>
+    <include layout="@layout/toolbar_file"/>
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"

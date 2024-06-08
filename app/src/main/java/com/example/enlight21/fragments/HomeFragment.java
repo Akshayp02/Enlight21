@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
         binding.postRecycler.setAdapter(adapter);
 
         folloeadapter = new FollowrvAdapter(requireContext(), followlist);
-        binding.followRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+       // binding.followRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         // binding.followRecycler.setPadding(0, 0, 0, 0);
         db.collection(USER_NODE).document(user1.getUid()).get().addOnSuccessListener(documentSnapshot -> {
 
@@ -68,11 +68,11 @@ public class HomeFragment extends Fragment {
 
 
             if (user1.image != null) {
-                Picasso.get().load(user1.image).into(binding.storyicon);
+              //  Picasso.get().load(user1.image).into(binding.storyicon);
             }
         });
 
-        binding.followRecycler.setAdapter(folloeadapter);
+       // binding.followRecycler.setAdapter(folloeadapter);
         // code here
 
         db.collection(FirebaseAuth.getInstance().getCurrentUser().getUid() + FOLLOW).get().addOnSuccessListener(queryDocumentSnapshots -> {
@@ -96,15 +96,15 @@ public class HomeFragment extends Fragment {
         });
 
 
-        binding.Search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(getActivity(), SearchActivity.class);
-                startActivity(intent);
-
-            }
-        });
+//        binding.Search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(getActivity(), SearchActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
         return binding.getRoot();
     }

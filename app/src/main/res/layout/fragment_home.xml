@@ -1,119 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/baseBgcolor"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".fragments.HomeFragment">
+        <include layout="@layout/toolbar_file"/>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_margin="1dp"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:visibility="visible">-->
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="@color/baseBgcolor"
-        android:elevation="12dp"
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginTop="1dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:visibility="visible">-->
+<!--                >-->
 
-        >
+<!--            </LinearLayout>-->
 
-        <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="start"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:visibility="visible">-->
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/followRecycler"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginStart="6dp"-->
+<!--                    android:visibility="visible"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+        <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/enlight21tool"/>
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/Search"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:layout_gravity="center_vertical"
-                android:foregroundGravity="left|center"
-                android:layout_marginStart="200dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/searchicon"/>
-
-
-        </LinearLayout>
-
-
-
-    </com.google.android.material.appbar.MaterialToolbar>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="1dp"
-        app:cardCornerRadius="18dp"
-        android:backgroundTint="@android:color/transparent"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="1dp"
-            android:orientation="horizontal">
-            >
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="80dp"
-               android:orientation="vertical">
-
-               <de.hdodenhof.circleimageview.CircleImageView
-                   android:layout_marginTop="5dp"
-                   android:id="@+id/storyicon"
-                   android:layout_width="50dp"
-                   android:layout_height="50dp"
-                   android:layout_gravity="center_vertical"
-                   android:layout_marginStart="8dp"
-                   android:src="@drawable/profilepicicon" />
-
-               <androidx.appcompat.widget.AppCompatTextView
-                   android:layout_width="30dp"
-                   android:layout_height="25dp"
-                   android:text="You"
-                   android:fontFamily="@font/inter"
-                   android:textSize="12sp"
-                   android:gravity="center"
-                   android:layout_marginTop="2dp"
-                   android:layout_marginStart="20dp"
-                   android:textColor="@color/paragraph_color"/>
-           </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="60dp"
-           >
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/followRecycler"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="6dp"/>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+            android:layout_marginTop="5dp" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/postRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+
 
 </LinearLayout>

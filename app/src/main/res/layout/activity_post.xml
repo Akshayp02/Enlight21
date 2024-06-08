@@ -12,33 +12,28 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:background="@color/baseBgcolor"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="@color/headline_color"
         app:title="New Post"
         app:titleMargin="4dp"
         app:titleMarginStart="2dp"
-        app:titleTextColor="@color/headline_color"
-        tools:ignore="MissingConstraints" />
+        app:titleTextColor="@color/headline_color" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageView1"
         android:layout_width="400dp"
         android:layout_height="350dp"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@id/toolbar"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:padding="12dp"
-        android:paddingBottom="2dp"
         android:scaleType="fitCenter"
         android:src="@drawable/imagegallery"
         app:riv_border_color="#2cb67d"
@@ -48,7 +43,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/imageView1"
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
@@ -58,25 +53,20 @@
         <EditText
             android:id="@+id/inputCaption"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_below="@+id/imageView1"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_height="match_parent"
             android:background="@color/TextfieldColor"
             android:gravity="start"
             android:hint="Write a Caption"
             android:padding="5dp"
             android:textColor="@color/paragraph_color"
             android:textColorHint="@color/Hint_color"
-            android:textSize="15sp"
-            android:visibility="visible"
-            app:boxStrokeColor="#2cb67d" />
+            android:textSize="15sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Technologyip"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textInputLayout"
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
@@ -86,10 +76,7 @@
         <EditText
             android:id="@+id/TECNOLOGYip"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@+id/textInputLayout"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_height="match_parent"
             android:background="@color/TextfieldColor"
             android:gravity="start"
             android:hint="Select Technology"
@@ -97,11 +84,8 @@
             android:textColor="@color/paragraph_color"
             android:textColorHint="@color/Hint_color"
             android:textSize="15sp"
-            android:visibility="visible"
-            app:boxStrokeColor="#2cb67d"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/addPost"
@@ -116,30 +100,28 @@
         android:text="Share as a Post"
         android:textColor="@color/headline_color"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:visibility="visible" />
+        android:textStyle="bold" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/sheare_post"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/addPost"
-        android:orientation="vertical">
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/BTNcolor"
+        android:fontFamily="@font/oxanium_medium"
+        android:text="POST"
+        android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/sheare_post"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="351dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/addPost"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/BTNcolor"
-            android:fontFamily="@font/oxanium_medium"
-            android:text="POST"
-            android:textColor="@color/white" />
-
-
-    </LinearLayout>
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -19,6 +19,8 @@ import com.example.enlight21.fragments.HomeFragment;
 import com.example.enlight21.fragments.ProfileFragment;
 import com.example.enlight21.fragments.chat_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.Firebase;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ROOT_FRAGMENT_TAG = "root_fragment";
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseApp.initializeApp(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

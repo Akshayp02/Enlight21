@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/home"
+        android:icon="@drawable/home_iconpx"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/chat"
-        android:icon="@drawable/knowledgetransfer"
+        android:icon="@drawable/chat_chat"
         android:title="chats" />
 
     <item
         android:id="@+id/add"
-        android:icon="@drawable/add"
+        android:icon="@drawable/add_post"
         android:title="Post" />
     <item
         android:id="@+id/book"
-        android:icon="@drawable/knowledge"
+        android:icon="@drawable/bookmark_icon"
         android:title="Books" />
 
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/user"
+        android:icon="@drawable/account_icon"
         android:title="Profile" />
 
 

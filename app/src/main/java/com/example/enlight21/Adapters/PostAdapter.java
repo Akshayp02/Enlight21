@@ -6,6 +6,7 @@ import static com.example.enlight21.Utils.Constant.USER_NODE;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     int coutn = 0;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseFirestore dbs = FirebaseFirestore.getInstance();
+
 
     public PostAdapter(Context context, ArrayList<Post> postlist) {
         this.postlist = postlist;
@@ -74,16 +76,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         try { // USER_NODE
             db.collection(POST).document(postlist.get(position).getUsername()).get().addOnSuccessListener(documentSnapshot -> {
-
                 // holder.binding.usernaMe.setText(documentSnapshot.getString("username"));
                 holder.binding.usernaMe.setText(postlist.get(position).getUsername());
                 holder.binding.technology.setText(postlist.get(position).getTechnology());
-                holder.binding.imgeCaption.setText(postlist.get(position).getCaption());
 
-
+                if(postlist.get(position).getCaption().isEmpty()){
+                    holder.binding.imgeCaption.setVisibility(View.INVISIBLE);
+                }else{
+                    holder.binding.imgeCaption.setText(postlist.get(position).getCaption());
+                }
 
                 Glide.with(holder.binding.getRoot().getContext()).load(postlist.get(position).getPostUrl()).placeholder(R.drawable.user);
-
 
             });
         } catch (Exception e) {
@@ -91,18 +94,45 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         }
 
 
-        Glide.with(holder.binding.getRoot().getContext()).load(postlist.get(position).getPostUrl()).placeholder(R.drawable.loading);
-        // Glide.with(holder.binding.getRoot().getContext()).load(postlist.get(position).getPostUrl()).placeholder(R.drawable.user).into(holder.binding.postcuretnuser);
-        Glide.with(holder.binding.getRoot().getContext()).load(postlist.get(position).getPostUrl()).placeholder(R.drawable.loading).into(holder.binding.postimg);
+       try {
+
+           holder.binding.lodingpostProgressbar.setVisibility(View.VISIBLE);
+           if(!postlist.get(position).getPostUrl().isEmpty()){
+               holder.binding.lodingpostProgressbar.setVisibility(View.INVISIBLE);
+               Glide.with(holder.binding.getRoot().getContext()).load(postlist.get(position).getPostUrl()).into(holder.binding.postimg);
+               holder.binding.postimg.setVisibility(View.VISIBLE);
+           }else {
+               holder.binding.lodingpostProgressbar.setVisibility(View.INVISIBLE);
+               holder.binding.postimg.setVisibility(View.INVISIBLE);
+           }
 
 
-        // Toast.makeText(holder.binding.getRoot().getContext(), "username "+coutn, Toast.LENGTH_SHORT).show();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
 
 
         holder.binding.like.setOnClickListener(v -> {
-            holder.binding.like.setImageResource(R.drawable.love);
-            // coutn++;
+            holder.binding.like.setImageResource(R.drawable.after_like_px);
+
+           // TODO : add functinality  for Like
+
         });
+
+       holder.binding.save.setOnClickListener( v -> {
+           holder.binding.save.setImageResource(R.drawable.bookmark_iconaftersave);
+           // TODO : add functinality  for save
+       });
+
+
+       holder.binding.comments.setOnClickListener(v ->{
+           // TODO : add functinality  for comments
+       });
+
+       holder.binding.share.setOnClickListener(v->{
+           // TODO : add functinality  for share in chat and explicitly as well
+       });
 
 
 

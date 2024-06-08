@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardPreventCornerOverlap="true"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -15,10 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/TextfieldColor"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
             android:padding="2dp"
-            >
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/upperimgsection"
@@ -27,49 +32,48 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="70dp"
                     android:backgroundTint="@color/baseBgcolor">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/postcuretnuser"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/circular_bounded_basecolor"
                         android:padding="2dp"
                         android:src="@drawable/userprofile" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="110dp"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="vertical">
+                        android:layout_marginStart="65dp"
+                        android:orientation="vertical"
+                        android:padding="1dp">
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
                             android:id="@+id/usernaMe"
                             android:layout_width="match_parent"
                             android:layout_height="20dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
                             android:fontFamily="@font/inter_medium"
+                            android:gravity="start"
                             android:text="User Name"
                             android:textColor="@color/headline_color"
-                            android:textSize="16sp"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
 
                         <androidx.appcompat.widget.AppCompatCheckedTextView
                             android:id="@+id/technology"
                             android:layout_width="match_parent"
                             android:layout_height="20dp"
-                            android:layout_marginStart="11dp"
-                            android:layout_marginTop="8dp"
                             android:fontFamily="@font/inter"
+                            android:gravity="start"
                             android:text="Technology"
                             android:textColor="@color/paragraph_color"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:textStyle="normal" />
 
                     </LinearLayout>
@@ -80,89 +84,280 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="102dp">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/imgeCaption"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="@font/inter_medium"
-                    android:text=" Embrace your strengths, and remember that each step forward is a step toward realizing your aspirations. Keep being resilient and pursuing your goals. You've got this!"
-                    android:textColor="@color/paragraph_color"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="1dp">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/postimg"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_below="@id/imgeCaption"
-                    android:src="@drawable/logo" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/postimg"
-                    android:layout_marginEnd="0dp"
-                    android:backgroundTint="@color/baseBgcolor">
-
-                    <LinearLayout
-                        android:id="@+id/s123"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                       >
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/like"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="30dp"
-                            android:src="@drawable/heart" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/share"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="15dp"
-                            android:src="@drawable/send" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/imgeCaption"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="55dp"
-                        android:layout_marginStart="10dp"
-                        >
-<!--                        <androidx.appcompat.widget.AppCompatCheckedTextView-->
-<!--                            android:id="@+id/post_like_count"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="20dp"-->
-<!--                            android:layout_marginStart="8dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:fontFamily="@font/inter_medium"-->
-<!--                            android:text="1000k lkes"-->
-<!--                            android:textColor="@color/headline_color"-->
-<!--                            android:textSize="18sp"-->
-<!--                            android:textStyle="bold" />-->
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="start"
+                        android:padding="2dp"
+                        android:text="Embrace your strengths, and remember that each step forward is a step toward realizing your aspirations. Keep being resilient and pursuing your goals. You've got this!"
+                        android:textColor="@color/headline_color"
+                        android:textSize="12sp" />
 
+                    <ProgressBar
+                        android:id="@+id/lodingpost_progressbar"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone" />
 
-                    </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/postimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_below="@id/imgeCaption"
+                        android:layout_centerInParent="true"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logo"
+                        android:visibility="invisible" />
 
-                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/postimg"
+                        android:layout_marginEnd="0dp"
+                        android:backgroundTint="@color/baseBgcolor">
 
-            </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="2dp">
 
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:ignore="MissingClass">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/like_Counter_img"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/after_like_px"
+                                    android:visibility="gone"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.5" />
+
+                                <TextView
+                                    android:id="@+id/like_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="10sp"
+                                    android:visibility="gone"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/like_Counter_img"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.5" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/seecoments"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_weight="1"
+                                    android:gravity="start"
+                                    android:text="0 comments"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/seereposts"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.5"
+                                    tools:ignore="DuplicateIds" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/seereposts"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_weight="1"
+                                    android:gravity="start"
+                                    android:text="reposts 0"
+                                    android:textSize="10sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.5" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="4dp" />
+
+                            <LinearLayout
+                                android:id="@+id/s123"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="2dp"
+                                android:layout_marginTop="2dp">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="35dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/like"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:src="@drawable/thumb_up_litepx" />
+
+                                    <TextView
+                                        android:id="@+id/textView"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/like"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="like"
+                                        android:textSize="10sp" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="45dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/comments"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:src="@drawable/comment_px" />
+
+                                    <TextView
+                                        android:id="@+id/textView2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/comments"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="comment"
+                                        android:textSize="10sp" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="45dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/repost"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:src="@drawable/repostpx" />
+
+                                    <TextView
+                                        android:id="@+id/textView3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/repost"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="repost"
+                                        android:textSize="10sp" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="45dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/share"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:src="@drawable/send_px" />
+
+                                    <TextView
+                                        android:id="@+id/textView4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/share"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="send"
+                                        android:textSize="10sp" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="45dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/save"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:src="@drawable/bookmark_litepx" />
+
+                                    <TextView
+                                        android:id="@+id/textView5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/save"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center"
+                                        android:text="save"
+                                        android:textSize="10sp" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/seeComments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="55dp"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <!-- TODO: add section to see the comments-->
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+  <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:visibility="visible"
+             />
+
 
 
     </LinearLayout>
